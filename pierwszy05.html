@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang=”pl”>
+   <head>
+      <meta charset="utf-8" name="viewport" content="user-scalable=no, width=device-width" />
+      <title>Kolorowe H</title>
+      
+      <style>
+       
+       td {
+	width: 70px;
+	height: 70px;
+        font-size: 25pt;
+	font-weight: bold;
+	text-align: center;
+       }
+       table {
+   	border-spacing:5px;
+        border-width: medium;
+	border-bottom: solid 20px brown;
+          border-top: solid 15px brown;
+          border-left: solid 12px brown;
+          border-right: solid 12px brown;
+          border-spacing:0px;
+          border-radius: 15px;
+          box-shadow: 0 0 6px 2px khaki; 
+       }
+       .koment {
+        width: 120px;
+	height: 70px;
+        font-size: 25pt;
+	font-weight: bold;
+	text-align: center;
+        background-color: khaki; border-radius: 10px; box-shadow: inset 0 0 8px 2px red;
+
+        }
+       .k12 {background-color: blue; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k15 {background-color: red; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k3 {background-color: yellow; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k7 {background-color: orange; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k8 {background-color: grey; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k9 {background-color: green; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k1 {background-color: violet; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k11 {background-color: pink; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k13 {background-color: white; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k2 {background-color: purple; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k4 {background-color: brown; border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k6 {background-color: rgb(200,39,57); border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k10 {background-color: rgb(39,200,40); border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k5 {background-color: rgb(39,209,230); border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k14 {background-color: rgb(139,109,230); border-radius: 10px; box-shadow: inset 0 0 8px 2px khaki;}
+       .k16 {background-color: khaki; border-radius: 10px; box-shadow: inset 0 0 8px 2px red;}
+       .k17 {background-color: black;}
+        body {background-color: black;}
+      </style>
+   </head>
+   <body>
+
+   <table align="center">
+<tr>
+<td class="koment">Punkty</td>
+<td id="66" class="k6" onClick = "gra.zamienKolory('66')"></td>
+<td id="punkty" class="k16" onClick = "gra.zaczynaj()"></td>
+<td id="77" class="k7" onClick = "gra.zamienKolory('77')"></td>
+
+
+</tr>
+<tr>
+<td class="koment">Runda 1.</td>
+<td id="33" class="k2" onClick = "gra.zamienKolory('33')"></td>
+<td id="11" class="k12" onClick = "gra.zmienKolor('11')"></td>
+<td id="44" class="k3" onClick = "gra.zamienKolory('44')"></td>
+
+
+</tr>
+
+<tr>
+<td class="koment">Kliknięcia</td>
+<td id="55" class="k4" onClick = "gra.zamienKolory('55')"></td>
+<td id="licznik" class="k16" onClick = "gra.zmienZnak()"()>0</td> 
+<td id="22" class="k1" onClick = "gra.zamienKolory('22')"></td>
+</tr>
+
+<tr>
+<td class="koment">Odgadnienia</td>
+<td id="odg1" class="k16" onClick = "gra.odgadnij('odg1')">34</td>
+<td id="odg2" class="k16" onClick = "gra.odgadnij('odg2')">34</td>
+<td id="odg3" class="k16" onClick = "gra.odgadnij('odg3')">34</td>
+
+
+</tr>
+</table>
+
+ <script>
+var gra = {
+liczbaPunktow: 0,
+fazaOdgadywania: false,
+koniecGry: false,
+fazaGry: true,
+liczbaKolorow: 16,
+//Zmienna liczbaKlikniec liczy liczbę kliknięć gracza.
+liczbaKlikniec: 0,
+//Metoda liczbaLosowa(mniejszaOd) zwraca liczbę naturalną wybraną losowo mniejszą od zmiennej mniejszaOd.
+liczbaLosowa: function(mniejszaOd){return Math.floor(Math.random()*mniejszaOd);},
+
+//Metoda ustawPozycje(pozycja) ustawia kamienie na planszy zgodnie z informacją o ich rozmieszczeniu podaną w tablicy pozycja.
+zmienKolor: function(){
+            
+                 var element = document.getElementById('11');
+                 element.removeClass;
+                 element.setAttribute("class", "k" + (this.liczbaLosowa(this.liczbaKolorow - 1)+1));
+                 gra.liczbaKlikniec = gra.liczbaKlikniec + 1;
+                 var licznik = document.getElementById("licznik");
+                 licznik.innerHTML = gra.liczbaKlikniec;
+                
+            },
+zamienKolory: function(idKliknietegoPola){
+            var element1 = document.getElementById(idKliknietegoPola);
+            var element2 = document.getElementById('11');
+            var klasa1 = element1.getAttribute("class");
+            var klasa2 = element2.getAttribute("class");
+            element1.removeClass;
+            element1.setAttribute("class", klasa2);
+            element2.removeClass;
+            element2.setAttribute("class", klasa1);
+            gra.liczbaKlikniec = gra.liczbaKlikniec + 1;
+            var licznik = document.getElementById("licznik");
+            licznik.innerHTML = gra.liczbaKlikniec;
+            },
+
+sprawdzCzyKoniec: function(){
+             for (var i = 0; i < 5; i++){
+                  var element1 = document.getElementById('' + (10*(i + 1) + i + 1));
+                  var element2 = document.getElementById('' + (10*(i + 2) + i + 2));
+                  var klasa1 = element1.getAttribute("class");
+                  var klasa2 = element2.getAttribute("class");
+                  if (klasa1 != klasa2){this.koniecGry = true;}
+                 }
+             this.koniecGry = false;
+            },
+
+init: function(){
+              var element = document.getElementById("punkty");
+              element.innerHTML = 0;
+              element = document.getElementById("odg1");
+              element.innerHTML = 35;
+              element = document.getElementById("odg2");
+              element.innerHTML = 35;
+              element = document.getElementById("odg3");
+              element.innerHTML = 35;
+              element = document.getElementById("licznik");
+              element.innerHTML = "+";
+            },
+
+odgadnij: function(id){
+           if (document.getElementById("licznik").innerHTML == "+"){
+                
+                document.getElementById(id).innerHTML = Number(document.getElementById(id).innerHTML) + 1;
+              }
+           if (document.getElementById("licznik").innerHTML == "-"){
+                 document.getElementById(id).innerHTML = Number(document.getElementById(id).innerHTML) - 1;
+              }
+          },
+
+zmienZnak: function(){
+            var znak = document.getElementById("licznik").innerHTML;
+            if (znak == "+"){document.getElementById("licznik").innerHTML = "-"; return;}
+            if (znak == "-"){document.getElementById("licznik").innerHTML = "+"; return;}
+           }
+};
+gra.init();
+//Koniec obiektu gra
+</script>     
+   </body>
+</html>
+
